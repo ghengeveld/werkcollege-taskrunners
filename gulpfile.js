@@ -41,3 +41,7 @@ gulp.task('html', function(){
 });
 
 gulp.task('build', ['clean-dist', 'styles', 'scripts', 'html']);
+
+gulp.task('watch', function() {
+  return gulp.watch('src/**/*.scss', ['sass']);
+});
