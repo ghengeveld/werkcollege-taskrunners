@@ -45,6 +45,10 @@ module.exports = function(grunt) {
           'dist/index.html': 'src/index.html'
         }
       }
+    },
+    watch: {
+      files: ['src/styles/*.scss'],
+      tasks: ['sass:dev']
     }
   });
 
@@ -53,6 +57,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['clean:dist', 'sass:dist', 'uglify:dist', 'htmlmin:dist']);
 
