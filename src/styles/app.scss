@@ -1,0 +1,10 @@
+@import "variables";
+
+body {
+  padding-top: $navbar-offset;
+}
+
+.btn-primary {
+  background-color: $button-color;
+  border-color: $button-border-color;
+}
