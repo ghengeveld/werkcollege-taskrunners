@@ -8,10 +8,14 @@ module.exports = function(grunt) {
           'src/styles/app.css': 'src/styles/app.scss'
         }
       }
+    },
+    clean: {
+      dev: ['src/styles/app.css']
     }
   });
 
   // Load dependencies
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
 };
