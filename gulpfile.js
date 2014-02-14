@@ -5,6 +5,8 @@ var clean = require('gulp-clean');
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var minifyHTML = require('gulp-minify-html');
+var serve = require('gulp-serve');
+var open = require('gulp-open');
 
 gulp.task('sass', function() {
   return gulp.src('src/styles/app.scss')
@@ -45,3 +47,12 @@ gulp.task('build', ['clean-dist', 'styles', 'scripts', 'html']);
 gulp.task('watch', function() {
   return gulp.watch('src/**/*.scss', ['sass']);
 });
+
+gulp.task('serve', serve({ root: 'src', port: 9001 }));
+
+gulp.task('open', function(){
+  return gulp.src('src/index.html')
+    .pipe(open('', { url: 'http://localhost:9001' }));
+});
+
+gulp.task('init', ['serve', 'open', 'watch']);
